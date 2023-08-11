@@ -6,6 +6,7 @@ use App\Http\Controllers\SessionController;
 
 Route::middleware('guest')->group(function(){
     Route::get('/', [SessionController::class, 'register'])->name('register');
+    Route::post('/register', [SessionController::class, 'registerPost'])->name('register.post');
     Route::get('/login', [SessionController::class, 'loginView'])->name('login');
     Route::post('/login', [SessionController::class, 'loginCheck'])->name('loginCheck');
 });
