@@ -55,5 +55,21 @@
                 ]
             });
         });
+
+        // AJAX CRUD
+        $('#userTable').on('click', '.view-btn', function () {
+            var userId = $(this).data('id');
+            // Perform AJAX request for viewing user details
+        });
+
+        $('#userTable').on('click', '.edit-btn', function () {
+            var userId = $(this).data('id');
+            // Perform AJAX request for editing user details
+        });
+
+        $('#userTable').on('click', '.delete-btn', function () {
+            var userId = $(this).data('id');
+            // Perform AJAX request for deleting user
+        });
     </script>
 @endsection

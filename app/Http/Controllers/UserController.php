@@ -17,17 +17,17 @@ class UserController extends Controller
 
     public function getUsers(Request $request)
     {
-
         $users = User::select(['id', 'name', 'email']);
 
         return DataTables::of($users)
-            ->addColumn('action', function ($users){
+            ->addColumn('action', function ($user) {
                 return '
-                    <a href="javascript:void(0)" class="btn btn-primary">View</a>
-                    <a href="javascript:void(0)" class="btn btn-warning">Edit</a>
-                    <a href="javascript:void(0)" class="btn btn-danger">Delete</a>
-                ';
-
-            })->make(true);
+                <button class="btn btn-primary view-btn" data-id="' . $user->id . '">View</button>
+                <button class="btn btn-warning edit-btn" data-id="' . $user->id . '">Edit</button>
+                <button class="btn btn-danger delete-btn" data-id="' . $user->id . '">Delete</button>
+            ';
+            })
+            ->make(true);
     }
+
 }
