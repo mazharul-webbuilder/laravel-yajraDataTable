@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 
-Route::middleware('guest')->group(function(){
+Route::middleware(['danie_if_admin', 'guest' ])->group(function(){
     Route::get('/', [SessionController::class, 'register'])->name('register');
     Route::post('/register', [SessionController::class, 'registerPost'])->name('register.post');
     Route::get('/login', [SessionController::class, 'loginView'])->name('login');
@@ -12,9 +12,8 @@ Route::middleware('guest')->group(function(){
 });
 
 
-Route::middleware('auth')->group(function (){
-    Route::get('/dashboard', [UserController::class, 'users'])->name('users');
-    Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
+Route::middleware('admin_or_web')->group(function(){
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 });
 
 //AJAX ROUtes

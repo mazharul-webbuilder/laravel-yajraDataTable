@@ -32,8 +32,12 @@
                                 <div class="mt-3"></div>
                                 <input type="password" placeholder="Enter Password" name="password" class="form-control">
                                 <div class="mt-3"></div>
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-between">
                                     <input type="submit" class="btn btn-md btn-light" value="Register">
+                                    <div class="d-flex">
+                                        <p class="px-2 mb-0 mt-2">Already Registered?</p>
+                                        <a href="{{ route('login') }}" class="btn btn-info">Login</a>
+                                    </div>
                                 </div>
                             </form>
                         </div>

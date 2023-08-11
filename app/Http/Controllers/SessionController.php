@@ -37,13 +37,32 @@ class SessionController extends Controller
         return redirect()->back()->with('message' , 'Something went wrong');
     }
 
+    /**
+     * View Login Page
+    */
     public function loginView()
     {
-        return view('');
+        return view('auth.login');
     }
 
+    /**
+     * Log Admin & Users to the Application
+     * @param Request $request
+     */
     public function loginCheck(Request $request)
     {
-        return $request->all();
+        $credentials = $request->only('email', 'password');
+        if ($this->loginValidate($request)) {
+            try {
+                if (Auth::guard('admin')->attempt($credentials) || Auth::guard('web')->attempt($credentials)) {
+                    return redirect()->route('dashboard');
+                }
+            } catch (\Exception $e) {
+                return 'login error';
+            }
+        } else {
+            return 'validation failed'; // Add a return statement for validation failure
+        }
     }
+
 }
