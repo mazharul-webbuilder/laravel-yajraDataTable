@@ -14,6 +14,7 @@ Route::middleware(['danie_if_admin', 'guest' ])->group(function(){
 
 Route::middleware('admin_or_web')->group(function(){
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('users/data', [UserController::class, 'getUsers'])->name('users.data');
 });
 
 //AJAX ROUtes
