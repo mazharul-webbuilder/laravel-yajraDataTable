@@ -2,8 +2,10 @@
 
 ## Project Description:
 1. Manage thousands of thousands data
-2. Server Sider Rendering SSR
+2. Server Side Rendering (SSR)
 3. Ajax Advanced CRUD Operations
 
+#### Date: 24 August, 2023
 #### Developer: Mazharul Islam
+#### Full Stack PHP Laravel Developer
 ##### mazharulislam1998r@gmail.com
