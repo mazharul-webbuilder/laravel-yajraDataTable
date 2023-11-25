@@ -15,6 +15,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>Intro</th>
                                     <th>Email</th>
                                     <th>Action</th>
                                 </tr>
@@ -42,6 +43,9 @@
                     {
                         data: 'name',
                         name: 'name'
+                    },{
+                        data: 'intro',
+                        name: 'intro'
                     },
                     {
                         data: 'email',
