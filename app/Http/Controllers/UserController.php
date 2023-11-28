@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
+use \DataTables;
 
 class UserController extends Controller
 {
@@ -15,9 +15,9 @@ class UserController extends Controller
 
     public function getUsers(Request $request)
     {
-        $users = User::select(['id', 'name', 'email']);
+        $users = User::query()->orderBy('id', 'DESC');
 
-        return DataTables::of($users)
+        return DataTables::eloquent($users)
             ->addColumn('action', function ($user) {
                 return '
                 <button class="btn btn-primary view-btn" data-id="' . $user->id . '">View</button>
