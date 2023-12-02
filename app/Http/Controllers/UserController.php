@@ -38,7 +38,7 @@ class UserController extends Controller
 
         $users = User::query();
 
-        return DataTables::of($users)
+        return DataTables::eloquent($users)
             /*Set id to every row*/
             ->setRowId('{{$id}}')
             /*Set custom class to row*/
