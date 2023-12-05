@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Traits\Authentication;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class SessionController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function register()
+    public function register(): View
     {
         return view('auth.register');
     }
